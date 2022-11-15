@@ -2,6 +2,9 @@
 
 # Run the project
 ```
+python3 -m venv myvenv
+source myvenv/bin/activate
+python -m pip install -r requirements.txt
 python consumer.py
 python producer.py
 ```
