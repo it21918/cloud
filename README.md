@@ -1,7 +1,14 @@
 # cloud
 
-# Install Kafka
+# Run the project
+```
+python consumer.py
+python producer.py
+```
 
+
+
+# Install Kafka
 ## Install java 
 ```
 sudo apt update
