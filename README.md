@@ -1,5 +1,3 @@
-# cloud
-
 # Run the project
 ```
 python3 -m venv myvenv
