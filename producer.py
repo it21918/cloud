@@ -1,8 +1,9 @@
 import time
 import json
 from datetime import datetime
-from data_generator import get_articles
+from data_generator import  get_articles, mediaWiki
 from kafka import KafkaProducer
+import objectpath
 
 
 # Messages will be serialized as JSON
@@ -27,6 +28,6 @@ if __name__ == '__main__':
             print(f'Producing message @ {datetime.now()} | Message = {str(get_articles(topic))}')
             producer.send(topic, get_articles(topic))
 
-        # Sleep for a random number of seconds
+        # Sleep for two hours
         time_to_sleep = 3600 * 1000
         time.sleep(time_to_sleep)
