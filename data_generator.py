@@ -1,6 +1,4 @@
 import json
-
-import objectpath
 import requests
 
 def get_articles(topic) :
