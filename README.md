@@ -1,8 +1,8 @@
 # cloud
 
-1. Install Kafka
+###1. Install Kafka
 
-1.1 Install java 
+##1.1 Install java 
 sduo apt update
 sudo apt install default-jre
 java -version
