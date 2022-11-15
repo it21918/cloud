@@ -1,7 +1,7 @@
 import time
 import json
 from datetime import datetime
-from data_generator import generate_message, get_articles
+from data_generator import get_articles
 from kafka import KafkaProducer
 
 
