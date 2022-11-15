@@ -11,7 +11,7 @@ python producer.py
 
 
 
-# Install Kafka
+# Install and Run Kafka 3.3.1 On WSL
 ## Install java 
 ```
 sudo apt update
