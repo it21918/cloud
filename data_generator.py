@@ -1,25 +1,32 @@
 import json
 import requests
+from datetime import date
 
 def get_articles(topic) :
-    url = "https://newsapi.org/v2/everything?q=" + topic + "&from=2022-10-15&sortBy=publishedAt&apiKey=37f3f5562d6449778e935ffbbed23970"
+
+    today = date.today()
+
+    #y/mm/dd
+    date_y_mm_dd = today.strftime("%y-%m-%d")
+
+    url = "https://newsapi.org/v2/everything?q=" + topic + "&from=" + date_y_mm_dd + "&sortBy=publishedAt&apiKey=a7a6905553244317a359d0f330d3b3e2"
 
     payload = {}
     headers = {}
 
     response = requests.request("GET", url, headers=headers, data=payload)
-    domain_names(json.dumps(response.json()))
 
-    return response.text
+    return response.text, domain_names(response.text)
 
 def domain_names(jsonFile):
     j = json.loads(jsonFile)
     wiki = []
+    wiki.append(mediaWiki('TheGrio'))
 
-    for s in j.get('articles'):
-        wiki.append(mediaWiki(s.get('source')['name']))
+    # if j is not None:
+    #     for s in j.get('articles'):
+    #         wiki.append(mediaWiki(s.get('source')['name']))
 
-    print(wiki)
     return  wiki
 
 def mediaWiki(source):
@@ -31,4 +38,5 @@ def mediaWiki(source):
     }
 
     response = requests.request("GET", url, headers=headers, data=payload)
-    return response.text
+    
+    for d in json.loads(response.text)['query'].get('pages'): return (d['extract'])

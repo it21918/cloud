@@ -2,21 +2,21 @@ import json
 from kafka import KafkaConsumer
 
 if __name__ == '__main__':
+    topics = ['tesla', 'apple', 'microsoft', 'nasa', 'amazon', 'BBC', 'cloud', 'fiat'] 
+
     # Kafka Consumer
     consumerOfTopicOne = KafkaConsumer(
-        'tesla',
+        *topics,
         bootstrap_servers='localhost:9092',
         auto_offset_reset='earliest'
     )
 
     consumerOfTopicTwo = KafkaConsumer(
-        'apple',
+        'sourcesDomainName',
         bootstrap_servers='localhost:9092',
         auto_offset_reset='earliest'
     )
 
-    for message in consumerOfTopicOne:
-        print(json.loads(message.value))
-
     for message in consumerOfTopicTwo:
         print(json.loads(message.value))
+
