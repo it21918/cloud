@@ -16,16 +16,16 @@ def get_articles(topic) :
 
     response = requests.request("GET", url, headers=headers, data=payload)
 
-    return response.text, domain_names(response.text)
+    return response.text
 
 def domain_names(jsonFile):
     j = json.loads(jsonFile)
     wiki = []
-    wiki.append(mediaWiki('TheGrio'))
+    #wiki.append(mediaWiki('TheGrio'))
 
-    # if j is not None:
-    #     for s in j.get('articles'):
-    #         wiki.append(mediaWiki(s.get('source')['name']))
+    if j is not None:
+        for s in j.get('articles'):
+            wiki.append(mediaWiki(s.get('source')['name']))
 
     return  wiki
 
